@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marketplace Car Helper</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<main>
+<h1>Car listing helper</h1>
+<p class="hint">Open the Facebook Marketplace car listing, then capture it below.</p>
+
+<button id="capture" type="button">Capture visible tab</button>
+<p id="status" role="status"></p>
+<img id="preview" alt="Listing screenshot preview" hidden />
+
+<label>Listing URL
+<input id="listingUrl" type="url" readonly />
+</label>
+
+<fieldset>
+<legend>What you know (optional)</legend>
+<label>Year <input id="year" inputmode="numeric" placeholder="2018" /></label>
+<label>Make <input id="make" placeholder="Toyota" /></label>
+<label>Model <input id="model" placeholder="Camry" /></label>
+<label>Mileage <input id="mileage" inputmode="numeric" placeholder="95000" /></label>
+<label>Price <input id="price" placeholder="$12,500" /></label>
+<label>Seller notes
+<textarea id="notes" rows="3" placeholder="Paste description text if visible"></textarea>
+</label>
+</fieldset>
+
+<div class="row">
+<button id="copyPrompt" type="button">Copy AI prompt</button>
+<button id="download" type="button" disabled>Download screenshot</button>
+</div>
+
+<ol class="hint">
+<li>Capture, then download the screenshot.</li>
+<li>Copy the prompt, paste it into any AI chat with the screenshot attached.</li>
+<li>Fill in the car fields first for a more specific answer.</li>
+</ol>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

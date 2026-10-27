@@ -1,0 +1,85 @@
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  color: #1c1c1c;
+  background: #fff;
+  margin: 0;
+}
+
+main {
+  width: 340px;
+  padding: 12px 14px 14px;
+}
+
+h1 {
+  font-size: 15px;
+  margin: 0 0 4px;
+}
+
+.hint {
+  color: #444;
+  margin: 6px 0 10px;
+}
+
+ol.hint {
+  padding-left: 18px;
+  margin-bottom: 0;
+}
+
+button {
+  background: #0866ff;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin: 4px 4px 4px 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #bbb;
+  cursor: default;
+}
+
+button[type="button"]:last-child {
+  background: #e4e6eb;
+  color: #111;
+}
+
+#status {
+  min-height: 18px;
+  color: #444;
+}
+
+#preview {
+  display: block;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 6px 0 10px;
+}
+
+label {
+  display: block;
+  margin: 6px 0;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 3px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.row {
+  margin-top: 8px;
+}
