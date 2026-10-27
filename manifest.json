@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Marketplace Car Helper",
+  "version": "0.3.0",
+  "description": "Capture a Marketplace car listing and get extracted details, known issues, maintenance schedule, and seller questions in a side panel.",
+  "action": {
+    "default_title": "Marketplace Car Helper"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "tabs", "storage", "sidePanel"],
+  "host_permissions": ["<all_urls>"]
+}
