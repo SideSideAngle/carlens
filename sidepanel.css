@@ -1,0 +1,109 @@
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  color: #1c1c1c;
+  background: #fff;
+  margin: 0;
+}
+
+main {
+  padding: 12px 14px 20px;
+  max-width: 560px;
+}
+
+h1 {
+  font-size: 15px;
+  margin: 0 0 4px;
+}
+
+h2 {
+  font-size: 13px;
+  margin: 14px 0 4px;
+}
+
+.hint {
+  color: #444;
+  margin: 6px 0 10px;
+}
+
+button {
+  background: #0866ff;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin: 6px 4px 6px 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #bbb;
+  cursor: default;
+}
+
+#status {
+  min-height: 18px;
+  color: #444;
+}
+
+#preview {
+  display: block;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 6px 0 10px;
+}
+
+label {
+  display: block;
+  margin: 6px 0;
+}
+
+input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 3px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+details {
+  margin: 8px 0;
+}
+
+ul {
+  margin: 4px 0 8px;
+  padding-left: 18px;
+}
+
+#photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+#photos img {
+  width: 84px;
+  height: 63px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #f5f5f5;
+  padding: 8px;
+  border-radius: 6px;
+}

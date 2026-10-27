@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marketplace Car Helper</title>
+<link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+<main>
+<h1>Car listing helper</h1>
+<p class="hint">Open the Marketplace car listing, then run one capture. The key stays in your browser.</p>
+
+<details>
+<summary>AI settings</summary>
+<label>API endpoint
+<input id="endpoint" type="url" value="https://api.openai.com/v1/chat/completions" />
+</label>
+<label>Model
+<input id="model" value="gpt-4o-mini" />
+</label>
+<label>API key
+<input id="apiKey" type="password" autocomplete="off" placeholder="sk-…" />
+</label>
+<button id="saveSettings" type="button">Save settings</button>
+</details>
+
+<label>Listing URL
+<input id="listingUrl" type="url" readonly />
+</label>
+
+<fieldset>
+<legend>What you know (optional, improves accuracy)</legend>
+<label>Year <input id="year" inputmode="numeric" placeholder="2018" /></label>
+<label>Make <input id="make" placeholder="Toyota" /></label>
+<label>Model <input id="modelField" placeholder="Camry" /></label>
+<label>Mileage <input id="mileage" inputmode="numeric" placeholder="95000" /></label>
+<label>Price <input id="price" placeholder="$12,500" /></label>
+</fieldset>
+
+<div class="row">
+<button id="addPhoto" type="button">Capture photo</button>
+<button id="analyze" type="button">Analyze photos</button>
+</div>
+<p id="status" role="status"></p>
+<div id="photos"></div>
+<p id="photoHint" class="hint">No photos yet. Scroll through the listing and capture each angle plus the interior.</p>
+
+<section id="results" hidden>
+<h2>Vehicle</h2>
+<p id="vehicle"></p>
+<h2>Known issues</h2>
+<ul id="issues"></ul>
+<h2>Maintenance schedule</h2>
+<ul id="maintenance"></ul>
+<h2>Questions to ask the seller</h2>
+<ul id="questions"></ul>
+<h2>Red flags</h2>
+<ul id="flags"></ul>
+<details>
+<summary>Raw AI response</summary>
+<pre id="raw"></pre>
+</details>
+</section>
+</main>
+<script src="sidepanel.js"></script>
+</body>
+</html>
