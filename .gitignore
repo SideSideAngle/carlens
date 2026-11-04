@@ -1,0 +1,22 @@
+# API keys are entered in the extension UI and live in browser storage only.
+# Nothing secret belongs in this repo, but keep these out if they ever appear.
+.env
+.env.*
+*.pem
+*.key
+
+# dependencies / build output
+node_modules/
+dist/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# local tooling / environment dirs (never part of the submission)
+.agents/
+.eden/
+.hg/
+.muse/
+.sl/

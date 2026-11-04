@@ -3,16 +3,73 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Marketplace Car Helper</title>
+<title>CarLens</title>
 <link rel="stylesheet" href="sidepanel.css" />
 </head>
 <body>
 <main>
-<h1>Car listing helper</h1>
-<p class="hint">Open the Marketplace car listing, then run one capture. The key stays in your browser.</p>
+<h1 class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19a9 9 0 1 1 15 0"/><line x1="12" y1="13.5" x2="15.5" y2="10"/><circle cx="12" cy="13.5" r="1.2"/></svg>CarLens</h1>
+<p class="hint">Open a Marketplace car listing, then analyze it in one click.</p>
+
+<button id="analyzeListing" type="button" class="primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Analyze this listing</button>
+<p id="extractStatus" class="hint"></p>
+
+<label class="url-label">Listing URL
+<input id="listingUrl" type="url" readonly tabindex="-1" />
+</label>
+
+<section id="results" hidden>
+<h2>Vehicle</h2>
+<p id="vehicle"></p>
+<button id="saveCurrent" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>Save this car</button>
+<div class="row">
+<button id="copyReport" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy report</button>
+<button id="downloadReport" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download .md</button>
+</div>
+<h2>Known issues</h2>
+<ul id="issues"></ul>
+<h2>Maintenance schedule</h2>
+<ul id="maintenance"></ul>
+<h2>Questions to ask the seller</h2>
+<ul id="questions"></ul>
+<h2>Red flags</h2>
+<ul id="flags"></ul>
+<h2>Recalls &amp; complaints (NHTSA)</h2>
+<p id="nhtsaSummary" class="hint"></p>
+<ul id="nhtsaRecalls"></ul>
+<ul id="nhtsaComplaints"></ul>
+<h2>Message to seller</h2>
+<textarea id="sellerDraft" rows="4" placeholder="AI draft appears here after analysis"></textarea>
+<div class="row">
+<button id="copyDraft" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy message</button>
+</div>
+<details>
+<summary>Raw AI response</summary>
+<pre id="raw"></pre>
+</details>
+</section>
+
+<p id="status" role="status"></p>
+
+<details id="manualBox">
+<summary>Know the car already? Type it in</summary>
+<div class="manual-grid">
+<label>Year <input id="year" inputmode="numeric" placeholder="2018" /></label>
+<label>Make <input id="make" placeholder="Toyota" /></label>
+<label>Model <input id="modelField" placeholder="Camry" /></label>
+<label>Mileage <input id="mileage" inputmode="numeric" placeholder="95000" /></label>
+<label>Price <input id="price" placeholder="$12,500" /></label>
+</div>
+<label>Description or notes (optional)
+<textarea id="desc" rows="3" placeholder="Anything you know: condition, history, mods"></textarea>
+</label>
+<button id="quickAnalyze" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Analyze these details</button>
+<p class="hint">For cars you found elsewhere. One-click fills this in automatically when you analyze a listing.</p>
+</details>
 
 <details>
 <summary>AI settings</summary>
+<p class="hint">Bring your own key: paste any OpenAI-compatible endpoint, model, and API key. Stored only in this browser, never in the project.</p>
 <label>API endpoint
 <input id="endpoint" type="url" value="https://api.openai.com/v1/chat/completions" />
 </label>
@@ -25,44 +82,16 @@
 <button id="saveSettings" type="button">Save settings</button>
 </details>
 
-<label>Listing URL
-<input id="listingUrl" type="url" readonly />
-</label>
-
-<fieldset>
-<legend>What you know (optional, improves accuracy)</legend>
-<label>Year <input id="year" inputmode="numeric" placeholder="2018" /></label>
-<label>Make <input id="make" placeholder="Toyota" /></label>
-<label>Model <input id="modelField" placeholder="Camry" /></label>
-<label>Mileage <input id="mileage" inputmode="numeric" placeholder="95000" /></label>
-<label>Price <input id="price" placeholder="$12,500" /></label>
-</fieldset>
-
-<div class="row">
-<button id="addPhoto" type="button">Capture photo</button>
-<button id="analyze" type="button">Analyze photos</button>
-</div>
-<p id="status" role="status"></p>
-<div id="photos"></div>
-<p id="photoHint" class="hint">No photos yet. Scroll through the listing and capture each angle plus the interior.</p>
-
-<section id="results" hidden>
-<h2>Vehicle</h2>
-<p id="vehicle"></p>
-<h2>Known issues</h2>
-<ul id="issues"></ul>
-<h2>Maintenance schedule</h2>
-<ul id="maintenance"></ul>
-<h2>Questions to ask the seller</h2>
-<ul id="questions"></ul>
-<h2>Red flags</h2>
-<ul id="flags"></ul>
-<details>
-<summary>Raw AI response</summary>
-<pre id="raw"></pre>
-</details>
+<section id="savedSection">
+<h2>Saved cars</h2>
+<p id="savedHint" class="hint">Cars you save stay in this browser.</p>
+<div id="savedList"></div>
 </section>
 </main>
+<script src="extractor.js"></script>
+<script src="nhtsa.js"></script>
+<script src="saved.js"></script>
+<script src="report.js"></script>
 <script src="sidepanel.js"></script>
 </body>
 </html>

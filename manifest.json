@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Marketplace Car Helper",
-  "version": "0.3.0",
-  "description": "Capture a Marketplace car listing and get extracted details, known issues, maintenance schedule, and seller questions in a side panel.",
+  "name": "CarLens",
+  "version": "0.7.0",
+  "description": "One-click used-car analysis for Marketplace listings: known issues, maintenance, NHTSA recalls, and seller message drafts.",
   "action": {
-    "default_title": "Marketplace Car Helper"
+    "default_title": "CarLens"
   },
   "side_panel": {
     "default_path": "sidepanel.html"
@@ -12,6 +12,6 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["activeTab", "tabs", "storage", "sidePanel"],
+  "permissions": ["activeTab", "tabs", "storage", "sidePanel", "scripting"],
   "host_permissions": ["<all_urls>"]
 }

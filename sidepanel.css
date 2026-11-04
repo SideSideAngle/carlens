@@ -1,82 +1,214 @@
 body {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 13px;
+  line-height: 1.45;
   color: #1c1c1c;
   background: #fff;
   margin: 0;
 }
 
 main {
-  padding: 12px 14px 20px;
-  max-width: 560px;
+  padding: 14px 16px 24px;
+  max-width: 520px;
 }
 
 h1 {
-  font-size: 15px;
-  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 2px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand svg {
+  width: 22px;
+  height: 22px;
+  color: #0b6e4f;
 }
 
 h2 {
   font-size: 13px;
-  margin: 14px 0 4px;
+  font-weight: 650;
+  margin: 16px 0 6px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+
+#results h2:first-of-type {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .hint {
-  color: #444;
+  color: #5f6368;
   margin: 6px 0 10px;
 }
 
-button {
-  background: #0866ff;
-  color: #fff;
-  border: 0;
-  border-radius: 6px;
-  padding: 8px 10px;
-  margin: 6px 4px 6px 0;
-  cursor: pointer;
-}
-
-button:disabled {
-  background: #bbb;
-  cursor: default;
-}
-
-#status {
+#status, #extractStatus {
   min-height: 18px;
   color: #444;
 }
 
-#preview {
-  display: block;
+#status:empty, #extractStatus:empty {
+  display: none;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #f1f3f4;
+  color: #1c1c1c;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 6px 6px 6px 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+button svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+}
+
+button:hover {
+  background: #e8eaed;
+}
+
+button:disabled {
+  background: #f1f3f4;
+  color: #9aa0a6;
+  border-color: #e0e0e0;
+  cursor: default;
+}
+
+button.primary, #analyzeListing, #quickAnalyze {
+  background: #0b6e4f;
+  color: #fff;
+  border: 0;
+  font-weight: 600;
+}
+
+button.primary:hover, #analyzeListing:hover, #quickAnalyze:hover {
+  background: #095c42;
+}
+
+#analyzeListing {
   width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin: 6px 0 10px;
+  justify-content: center;
+  padding: 11px;
+  font-size: 14px;
+  margin: 10px 0 2px;
+}
+
+#analyzeListing svg {
+  width: 17px;
+  height: 17px;
+}
+
+#saveCurrent {
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #fff;
+  border: 2px solid #0b6e4f;
+  color: #0b6e4f;
+  margin: 8px 0 2px;
+}
+
+#saveCurrent:hover {
+  background: #e6f4ee;
+}
+
+#saveCurrent svg {
+  width: 17px;
+  height: 17px;
+}
+
+#quickAnalyze {
+  width: 100%;
+  justify-content: center;
+}
+
+.url-label {
+  color: #5f6368;
+  font-size: 12px;
+}
+
+.url-label input {
+  color: #5f6368;
+  background: #f8f9fa;
+  font-size: 12px;
 }
 
 label {
   display: block;
-  margin: 6px 0;
+  margin: 8px 0;
 }
 
-input {
+input, textarea {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  margin-top: 3px;
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
 }
 
-fieldset {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin-top: 10px;
+input:focus, textarea:focus {
+  outline: 2px solid #0b6e4f;
+  outline-offset: -1px;
+  border-color: #0b6e4f;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.manual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 10px;
+}
+
+.manual-grid label {
+  margin: 4px 0;
 }
 
 details {
-  margin: 8px 0;
+  margin: 12px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 4px 12px 8px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+#results details {
+  border: 0;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+#results summary {
+  font-weight: 400;
+  color: #5f6368;
 }
 
 ul {
@@ -84,20 +216,50 @@ ul {
   padding-left: 18px;
 }
 
-#photos {
+li {
+  margin-bottom: 3px;
+}
+
+#vehicle {
+  font-weight: 600;
+  margin: 4px 0 2px;
+}
+
+.row {
   display: flex;
   flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.saved-row {
+  display: flex;
   gap: 6px;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 6px 6px 6px 10px;
   margin: 6px 0;
 }
 
-#photos img {
-  width: 84px;
-  height: 63px;
-  object-fit: cover;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  cursor: pointer;
+.saved-info {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#savedList button {
+  padding: 4px 10px;
+  margin: 0;
+}
+
+#sellerDraft {
+  min-height: 80px;
+}
+
+#savedSection h2 {
+  margin-top: 20px;
 }
 
 pre {
