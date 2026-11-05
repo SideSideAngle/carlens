@@ -3,11 +3,11 @@
 One-click used-car help for Facebook Marketplace. Open a listing, hit **Analyze this listing**, and get known issues, a maintenance schedule, seller questions, red flags, real NHTSA recall data, and a message draft — in a Chrome side panel.
 
 <!-- TODO: replace with your demo video link -->
-> 🎬 [**Demo video:** coming soon — 90 seconds, one listing, full report.](https://youtu.be/3O4ecIyk87s)
+> 🎬 [**Demo video:**](https://youtu.be/3O4ecIyk87s)
 
 ## The problem
 
-Most used-car buyers aren't car people. A Marketplace listing shows a price and a few photos, but the expensive questions — *what breaks on this exact car, what's due at this mileage, what should I ask the seller* — take hours of forum-diving to answer. CarLens answers them in one click, where the buyer already is.
+Most used-car buyers aren't car people. A Marketplace listing shows a price and a few photos, but the expensive questions, like ""what breaks on this exact car, what's due at this mileage, what should I ask the seller"", take hours of forum-diving to answer. CarLens answers them in one click, where the buyer already is.
 
 ## What it does
 
@@ -20,7 +20,7 @@ Most used-car buyers aren't car people. A Marketplace listing shows a price and 
 
 ## Try it (2 minutes, bring your own key)
 
-CarLens calls an AI model you choose — there is no bundled key, so the repo is safe to fork.
+CarLens calls an AI model you choose; there is no bundled key, so the repo is safe to fork.
 
 1. Open `chrome://extensions`, enable **Developer mode**, **Load unpacked** → select the `carlens` folder.
 2. Click the toolbar icon, open **AI settings**, paste an API key and save. Any OpenAI-compatible endpoint works — OpenAI, or a free-tier key from providers like Google AI Studio or OpenRouter.
