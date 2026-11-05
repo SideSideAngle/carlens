@@ -3,7 +3,7 @@
 One-click used-car help for Facebook Marketplace. Open a listing, hit **Analyze this listing**, and get known issues, a maintenance schedule, seller questions, red flags, real NHTSA recall data, and a message draft — in a Chrome side panel.
 
 <!-- TODO: replace with your demo video link -->
-> 🎬 **Demo video:** coming soon — 90 seconds, one listing, full report.
+> 🎬 [**Demo video:** coming soon — 90 seconds, one listing, full report.](https://youtu.be/3O4ecIyk87s)
 
 ## The problem
 
